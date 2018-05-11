@@ -27,7 +27,7 @@ $config = [
             'class' => 'yii\rbac\DbManager',
         ],
         'errorHandler' => [
-            'class' => 'app\components\SgdErrorHandler',
+//            'class' => 'app\components\SgdErrorHandler',
         ],
 
         'mailer'       => [
