@@ -148,22 +148,17 @@ class Container extends Component
     {
 
         if (isset($this->_singletons[$class])) {
-            echo 1;
             // singleton
             return $this->_singletons[$class];
         } elseif (!isset($this->_definitions[$class])) {
-//            var_dump(isset($this->_definitions[$class]));
             return $this->build($class, $params, $config);
         }
-        echo 3;die();
         $definition = $this->_definitions[$class];
 
         if (is_callable($definition, true)) {
-            echo 4;
             $params = $this->resolveDependencies($this->mergeParams($class, $params));
             $object = call_user_func($definition, $this, $params, $config);
         } elseif (is_array($definition)) {
-            echo 5;
             $concrete = $definition['class'];
             unset($definition['class']);
 
@@ -185,7 +180,6 @@ class Container extends Component
             // singleton
             $this->_singletons[$class] = $object;
         }
-die();
         return $object;
     }
 
