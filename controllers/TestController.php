@@ -15,7 +15,8 @@ class TestController extends Controller
 
     public function actionIndex(){
         $request = \Yii::$app->getRequest()->get();
-        var_dump($request);
+        var_dump('：你在哪呢？'.PHP_EOL);
+        var_dump('：在外边'.PHP_EOL);
         \Yii::$app->params;
     }
     /**
