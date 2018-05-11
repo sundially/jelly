@@ -15,10 +15,10 @@ defined ('YII_ENV') or define ('YII_ENV', 'local');
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-require(__DIR__ . '../vendor/autoload.php');
-require(__DIR__ . '../vendor/yiisoft/yii2/Yii.php');
+require(__DIR__ . './../vendor/autoload.php');
+require(__DIR__ . './../vendor/yiisoft/yii2/Yii.php');
 
-$config = require(__DIR__ . '../config/local/web.php');
+$config = require(__DIR__ . './../config/local/web.php');
 
 $application = new yii\console\Application($config);
 $exitCode = $application->run();
