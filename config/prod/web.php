@@ -7,7 +7,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap'  => ['log', 'profiler'],
+    'bootstrap'  => ['log'],
     'modules'    => [],
     'components' => \yii\helpers\ArrayHelper::merge ([
         'request' => [
@@ -21,13 +21,12 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-//            'loginUrl'        => ['admin/login'],
+            'loginUrl'        => ['admin/login'],
         ],
         'authManager'  => [
             'class' => 'yii\rbac\DbManager',
         ],
         'errorHandler' => [
-//            'class' => 'app\components\SgdErrorHandler',
             'errorAction' => 'site/error',
         ],
 
@@ -70,10 +69,10 @@ $config = [
             'connectionTimeout' => 2,
             'dataTimeout'       => 2,
         ],
-        'profiler'   => [
-            'class'       => 'app\components\Profiler',
-            'dbProfiling' => true,
-        ],
+//        'profiler'   => [
+//            'class'       => 'app\components\Profiler',
+//            'dbProfiling' => true,
+//        ],
     ],
         require (dirname (__DIR__).'/common/web-components.php')),
 
