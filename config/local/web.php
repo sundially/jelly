@@ -6,9 +6,9 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__),
-    'bootstrap'  => ['log', 'profiler'],
-    'modules'    => [],
+    'basePath' => dirname(dirname(__DIR__)),
+    'bootstrap'  => ['log'],
+    'timeZone'  => 'PRC',
     'components' => \yii\helpers\ArrayHelper::merge ([
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -18,16 +18,20 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
+        'redisCache'   => [
+            'class' => 'yii\redis\Cache',
+        ],
+        'user'         => [
+            'identityClass'   => 'app\models\User',
             'enableAutoLogin' => true,
-//            'loginUrl'        => ['admin/login'],
+            'loginUrl'        => ['admin/login'],
         ],
         'authManager'  => [
             'class' => 'yii\rbac\DbManager',
         ],
         'errorHandler' => [
 //            'class' => 'app\components\SgdErrorHandler',
+'errorAction' => 'site/error',
         ],
 
         'mailer'       => [
@@ -69,14 +73,26 @@ $config = [
             'connectionTimeout' => 2,
             'dataTimeout'       => 2,
         ],
-        'profiler'   => [
-            'class'       => 'app\components\Profiler',
-            'dbProfiling' => true,
-        ],
+//        'profiler'   => [
+//            'class'       => 'app\components\Profiler',
+//            'dbProfiling' => true,
+//        ],
     ],
         require (dirname (__DIR__).'/common/web-components.php')),
 
     'params' => \yii\helpers\ArrayHelper::merge(require(dirname(__DIR__) . '/common/params.php'), $params),
 ];
+if (YII_ENV_DEV) {
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class'      => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '36.110.61.100'] // 按需调整这里
+    ];
 
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class'      => 'yii\debug\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.100.4', '36.110.61.100'] // 按需调整这里
+    ];
+}
 return $config;
