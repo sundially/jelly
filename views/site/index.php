@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = '抢单系统后台';
 ?>
 <div class="site-index">
 
