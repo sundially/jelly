@@ -7,7 +7,8 @@ defined('YII_ENV') or define('YII_ENV', 'prod');
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
-$config = require(__DIR__ . '/../config/prod/web.php');
+$config1 = require(__DIR__ . '/../config/prod/web.php');
+$config = app\web\ConfigManager::loadConfig($config1, '/data/conf/jelly/server.ini');
 
 $application = new yii\web\Application($config);
 
