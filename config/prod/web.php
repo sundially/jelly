@@ -27,7 +27,7 @@ $config = [
             'class' => 'yii\rbac\DbManager',
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+           // 'errorAction' => 'site/error',
         ],
 
         'mailer'       => [
