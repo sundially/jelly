@@ -31,6 +31,10 @@ class ComposerStaticInit0fb7274d6961f08116ce84af67e50509
         array (
             'Faker\\' => 6,
         ),
+        'E' => 
+        array (
+            'Egulias\\EmailValidator\\' => 23,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -74,6 +78,10 @@ class ComposerStaticInit0fb7274d6961f08116ce84af67e50509
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
         ),
+        'Egulias\\EmailValidator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -86,6 +94,10 @@ class ComposerStaticInit0fb7274d6961f08116ce84af67e50509
         ),
         'D' => 
         array (
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
             'Diff' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',
